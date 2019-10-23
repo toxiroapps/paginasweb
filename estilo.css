@@ -1,0 +1,17 @@
+.cabecera{
+ width: 100%;
+}
+
+.detalle{
+ width: 100%;
+ border: 1px solid black;
+ border-collapse: collapse;
+ 
+}
+
+/*.detalle td:nth-child(9) {
+ width: 5px;
+}
+*/
+
+

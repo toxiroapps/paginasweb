@@ -1,0 +1,495 @@
+<!doctype html>
+<!-- Autor   : Jorge Moscoso -->
+<!-- Fecha   : 11-10-2019 -->
+<!-- Version : 1.0 -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>Orden de Trabajo</title>
+<link type="text/css" href="estilo.css" rel="stylesheet">
+<script language="JavaScript" type="text/JavaScript">
+function suma(){
+    var total=0;
+    for (var i=0;i<46;i++){
+       total+=parseFloat(document.getElementById("precio"+i).value);
+    }
+    document.getElementById('DivSNeto').innerHTML=total;
+    document.getElementById('DivSIVA').innerHTML=total*19/100;
+    document.getElementById('DivSTotal').innerHTML=total*(1+19/100);
+    var mtotal=0;
+    for (var i=0;i<19;i++){
+       mtotal+=parseFloat(document.getElementById("mprecio"+i).value);
+    }
+    document.getElementById('DivMNeto').innerHTML=mtotal;
+    document.getElementById('DivMIVA').innerHTML=mtotal*19/100;
+    document.getElementById('DivMTotal').innerHTML=mtotal*(1+19/100);
+
+    document.getElementById('DivTotal').innerHTML=(total*(1+19/100))+mtotal*(1+19/100);
+}
+</script>
+</head>
+
+<body>
+<!--Formulario -->
+<form method="POST" oninput="totalgeneral.value=parseInt(precio101.value)+parseInt(precio201.value)">
+
+<table class="cabecera" border=0 cellspacing="0">
+	<tr>
+		<td rowspan="3"><img src="logoindumotor.jpeg" alt="Logotipo" width="100" height="100" /></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>N°</td>
+		<td>75151</td>
+	</tr>
+
+	<tr>
+		
+		<td></td>
+		<td>SANTIAGO</td>
+		<td><input type="date" name ="fecha"></td>
+		<td>COTIZACION</td>
+		<td></td>
+	</tr>
+
+	<tr>
+	
+		<td></td>
+		<td>SEÑOR(ES)</td>
+		<td><input type="text" name="nombre" value=""></td>
+		<td>VALIDEZ 30 DIAS</td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td></td>
+		<td></td>
+		<td>DIRECCION</td>
+		<td><input type="text" name="direccion" value=""></td>
+		<td>FECHA DE ENTREGA</td>
+		<td><input type="date" name ="fechaEntrega"></td>
+	</tr>
+
+	<tr>
+		<td></td>
+		<td></td>
+		<td>RUT</td>
+		<td><input type="text" name="rut" value=""></td>
+		<td>CONDICIONES DE PAGO</td>
+		<td><input type="text" name="condicionpago" value=""></td>
+	</tr>
+
+	<tr>
+		<td>RECTIFICACION DE MOTOR MARCA:</td>
+		<td><input type="text" name="marca" value=""></td>
+		<td>CONTACTO</td>
+		<td><input type="text" name="contacto" value=""></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td>VENDEDOR</td>
+		<td><input type="text" name="vendedor" value=""></td>
+		<td>FONO/CEL</td>
+		<td><input type="text" name="fono" value=""></td>
+		<td>ABONO $</td>
+		<td><input type="number" name="abono" value=""></td>
+	</tr>
+
+	<tr>
+		<td>MECANICO</td>
+		<td><input type="text" name="mecanico" value=""></td>
+		<td>EMAIL</td>
+		<td><input type="text" name="correo" value=""></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+</table>
+
+<table class="detalle" border=1 cellspacing="0">
+<tr>
+<th>Servicio</th>
+<th width="50px">Medida</th>
+<th>Precio</th>
+<th>Servicio</th>
+<th>Precio</th>
+<th width="50px">Q</th>
+<th>Material/Pieza</th>
+<th>Medida</th>
+<th>Precio</th>
+</tr>
+
+<tr>
+<td><select name="servicio101">
+  <option value="Rectificar">Rectificar</option>
+  <option value="Pulir">Pulir</option>  
+</select> Cigueñal Bielas</td>
+<td><input type="text" name="medida101" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio0" id="precio0" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Cambiar <input type="number" name="Cantidad201" value="" style="width: 50px;"> guias de valvula</td>
+<td><input type="number" name="precio1" id="precio1" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td width="50px"><input type="number" name="Cantidad301" value="" style="width: 50px;"></td>
+<td>Juego de metales Biela</td>
+<td><input type="text" name="medida201" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio0" id="mprecio0" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td><select name="servicio102">
+  <option value="Rectificar">Rectificar</option>
+  <option value="Pulir">Pulir</option>  
+</select> Cigueñal Bancadas</td>
+<td><input type="text" name="medida102" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio2" id="precio2" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><select name="servicio202">
+  <option value="Rectificar">Rectificar</option>
+  <option value="Pulir">Pulir</option>  
+</select> <input type="number" name="Cantidad202" value="" style="width: 50px;"> Bielas</td>
+<td><input type="number" name="precio3" id="precio3" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad302" value="" style="width: 50px;"></td>
+<td>Juego de metales Bancada</td>
+<td><input type="text" name="medida202" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio1" id="mprecio1" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Controlar Magnaflux cigueñal</td>
+<td><input type="text" name="medida103" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio4" id="precio4" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Escuadrar <input type="number" name="Cantidad203" value="" style="width: 50px;"> Bielas</td>
+<td><input type="number" name="precio5" id="precio5" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad303" value="" style="width: 50px;"></td>
+<td>Juego de metales Leva</td>
+<td><input type="text" name="medida203" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio2" id="mprecio2" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Enderezar <select name="servicio104">
+  <option value="Cigueñal">Cigueñal</option>
+  <option value="Eje de Levas">Eje de Levas</option>  
+</select> </td>
+<td><input type="text" name="medida104" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio6" id="precio6" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Ajustar Pasadores a <input type="number" name="Cantidad204" value="" style="width: 50px;"> Bielas</td>
+<td><input type="number" name="precio7" id="precio7" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad304" value="" style="width: 50px;"></td>
+<td>Juego de axiales</td>
+<td><input type="text" name="medida204" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio3" id="mprecio3" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td><select name="servicio105">
+  <option value="Nitrurar">Nitrurar</option>
+  <option value="Balancear">Balancear</option>  
+</select> Cigueñal</td>
+<td><input type="text" name="medida105" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio8" id="precio8" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Ajustar Pasadores a <input type="number" name="Cantidad205" value="" style="width: 50px;"> Pistones</td>
+<td><input type="number" name="precio9" id="precio9" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad305" value="" style="width: 50px;"></td>
+<td>Juego de Pistones</td>
+<td><input type="text" name="medida205" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio4" id="mprecio4" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Metalizar <input type="number" name="Cantidad106" value="" style="width: 50px;"> Puños</td>
+<td><input type="text" name="medida106" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio10" id="precio10" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Armar <input type="number" name="Cantidad206" value="" style="width: 50px;"> Pistones a Bielas</td>
+<td><input type="number" name="precio11" id="precio11" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad306" value="" style="width: 50px;"></td>
+<td>Juego de Anillos</td>
+<td><input type="text" name="medida206" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio5" id="mprecio5" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td><select name="servicio107">
+  <option value="Rectificar">Rectificar</option>
+  <option value="Pulir">Pulir</option>  
+</select> eje de levas</td>
+<td><input type="text" name="medida107" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio12" id="precio12" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Rectificar Pistones</td>
+<td><input type="number" name="precio13" id="precio13" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad307" value="" style="width: 50px;"></td>
+<td>Camisas</td>
+<td><input type="text" name="medida207" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio6" id="mprecio6" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Controlar tolerancia eje de levas</td>
+<td><input type="text" name="medida108" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio14" id="precio14" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Barrenar <input type="number" name="Cantidad208" value="" style="width: 50px;"> descansos</td>
+<td><input type="number" name="precio15" id="precio15" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad308" value="" style="width: 50px;"></td>
+<td>Bujes de biela</td>
+<td><input type="text" name="medida208" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio7" id="mprecio7" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Cambiar descansos de levas y ajustar</td>
+<td><input type="text" name="medida109" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio16" id="precio16" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Cambiar sellos motor</td>
+<td><input type="number" name="precio17" id="precio17" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad309" value="" style="width: 50px;"></td>
+<td>Valvulas de escape</td>
+<td><input type="text" name="medida209" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio8" id="mprecio8" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td><select name="servicio110">
+  <option value="Rectificar">Rectificar</option>
+  <option value="Bruñir">Bruñir</option>  
+</select> cilindros</td>
+<td><input type="text" name="medida110" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio18" id="precio18" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Rellenar axiales de <input type="text" name="servicio210" value=""></td>
+<td><input type="number" name="precio19" id="precio19" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad310" value="" style="width: 50px;"></td>
+<td>Valvulas de admision</td>
+<td><input type="text" name="medida210" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio9" id="mprecio9" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Cambiar <input type="number" name="Cantidad111" value="" style="width: 50px;"> camisas</td>
+<td><input type="text" name="medida111" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio20" id="precio20" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Probar bomba de aceite</td>
+<td><input type="number" name="precio21" id="precio21" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad311" value="" style="width: 50px;"></td>
+<td>Guias de valvula</td>
+<td><input type="text" name="medida211" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio10" id="mprecio10" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Encamisar <input type="number" name="Cantidad112" value="" style="width: 50px;"> cilindros</td>
+<td><input type="text" name="medida112" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio22" id="precio22" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Soldadura de <input type="text" name="servicio212" value=""></td>
+<td><input type="number" name="precio23" id="precio23" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad312" value="" style="width: 50px;"></td>
+<td>Bomba de <input type="text" name="servicio312" value=""></td>
+<td><input type="text" name="medida212" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio11" id="mprecio11" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Controlar a presion <select name="servicio113">
+  <option value="Block">Block</option>
+  <option value="Culata">Culata</option>  
+</select></td>
+<td><input type="text" name="medida113" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio24" id="precio24" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><select name="servicio213a">
+  <option value="Tornear">Tornear</option>
+  <option value="Encamisar">Encamisar</option>  
+</select> <input type="text" name="servicio213b" value=""></td>
+<td><input type="number" name="precio25" id="precio25" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad313" value="" style="width: 50px;"></td>
+<td>Piñon de <input type="text" name="servicio313" value=""></td>
+<td><input type="text" name="medida213" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio12" id="mprecio12" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Controlar tuneles y ajustar metales</td>
+<td><input type="text" name="medida114" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio26" id="precio26" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Lavado Vapor</td>
+<td><input type="number" name="precio27" id="precio27" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad314" value="" style="width: 50px;"></td>
+<td><select name="servicio314">
+  <option value="Cadena">Cadena</option>
+  <option value="Correa">Correa</option>  
+</select> de distribucion</td>
+<td><input type="text" name="medida214" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio13" id="mprecio13" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Rectificar tuneles</td>
+<td><input type="text" name="medida115" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio28" id="precio28" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>Ensamble de motor</td>
+<td><input type="number" name="precio29" id="precio29" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad315" value="" style="width: 50px;"></td>
+<td>Juego de empaquetaduras</td>
+<td><input type="text" name="medida215" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio14" id="mprecio14" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Desarmar <select name="servicio116">
+  <option value="Ensamble">Ensamble</option>
+  <option value="Culata">Culata</option>  
+</select></td>
+<td><input type="text" name="medida116" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio30" id="precio30" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="text" name="servicio216" value=""></td>
+<td><input type="number" name="precio31" id="precio31" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="cantidad316" value="" style="width: 50px;"></td>
+<td>Empaquetadura de culata</td>
+<td><input type="text" name="medida216" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio15" id="mprecio15" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td><select name="servicio117">
+  <option value="Armar">Armar</option>
+  <option value="Regular">Regular</option>  
+</select> Culata(s)</td>
+<td><input type="text" name="medida117" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio32" id="precio32" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="text" name="servicio217" value=""></td>
+<td><input type="number" name="precio33" id="precio33" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad317" value="" style="width: 50px;"></td>
+<td>Juego sellos de agua</td>
+<td><input type="text" name="medida217" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio16" id="mprecio16" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Rectificar <input type="number" name="Cantidad118" value="" style="width: 50px;"> asientos de valvula</td>
+<td><input type="text" name="medida118" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio34" id="precio34" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="text" name="servicio218" value=""></td>
+<td><input type="number" name="precio35" id="precio35" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad318" value="" style="width: 50px;"></td>
+<td><input type="text" name="servicio318" value=""></td>
+<td><input type="text" name="medida218" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio17" id="mprecio17" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Cambiar <input type="number" name="Cantidad119" value="" style="width: 50px;"> asientos de valvula</td>
+<td><input type="text" name="medida119" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio36" id="precio36" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="text" name="servicio219" value=""></td>
+<td><input type="number" name="precio37" id="precio37" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="number" name="Cantidad319" value="" style="width: 50px;"></td>
+<td><input type="text" name="servicio319" value=""></td>
+<td><input type="text" name="medida219" value="" style="width: 50px;"></td>
+<td><input type="number" name="mprecio18" id="mprecio18" value="0" onBlur="suma()" style="width: 100px;"></td>
+</tr>
+
+<tr>
+<td>Rectificar <input type="number" name="Cantidad120" value="" style="width: 50px;"> superficie(s) culata(s)</td>
+<td><input type="text" name="medida120" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio38" id="precio38" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="text" name="servicio220" value=""></td>
+<td><input type="number" name="precio39" id="precio39" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Rectificar <input type="number" name="Cantidad121" value="" style="width: 50px;"> valvula(s)</td>
+<td><input type="text" name="medida121" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio40" id="precio40" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="text" name="servicio221" value=""></td>
+<td><input type="number" name="precio41" id="precio41" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Rellenar <input type="number" name="Cantidad122" value="" style="width: 50px;"> culata(s)</td>
+<td><input type="text" name="medida122" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio42" id="precio42" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td><input type="text" name="servicio222" value=""></td>
+<td><input type="number" name="precio43" id="precio43" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Asentar <input type="number" name="Cantidad123" value="" style="width: 50px;"> valvulas</td>
+<td><input type="text" name="medida123" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio44" id="precio44" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td><select name="servicio124">
+  <option value="Encamisar">Encamisar</option>
+  <option value="Escarear">Escarear</option>  
+</select> <input type="number" name="Cantidad124" value="" style="width: 50px;"> Guias de valvula</td>
+<td><input type="text" name="medida124" value="" style="width: 50px;"></td>
+<td><input type="number" name="precio45" id="precio45" value="0" onBlur="suma()" style="width: 100px;"></td>
+<td>SUBTOTAL RECTIFICACION     $</td>
+<td></td>
+<td></td>
+<td>SUB TOTAL REPUESTOS    $</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td colspan="3"></td>
+<td>SUBTOTAL     $</td>
+<td id="DivSNeto">0</td>
+<td></td>
+<td>SUBTOTAL     $</td>
+<td></td>
+<td id="DivMNeto">0</td>
+</tr>
+
+<tr>
+<td colspan="3"></td>
+<td>19% IVA     $</td>
+<td id="DivSIVA">0</td>
+<td></td>
+<td>19% IVA     $</td>
+<td></td>
+<td id="DivMIVA">0</td>
+</tr>
+
+<tr>
+<td colspan="3"></td>
+<td>TOTAL RECTIFICACION     $</td>
+<td id="DivSTotal">0</td>
+<td></td>
+<td>TOTAL REPUESTOS    $</td>
+<td></td>
+<td id="DivMTotal">0</td>
+</tr>
+
+<tr>
+<td colspan="3"></td>
+<td>TOTAL GENERAL</td>
+<td></td>
+<td width="50px">$</td>
+<td id="DivTotal">0</td>
+<td></td>
+<td><input type="submit" name="enviar" value="ENVIAR"></td>
+</tr>
+</table>
+
+</form>
+
+</body>
+</html>
